@@ -11,6 +11,7 @@ public class Factura {
     private Double iva;
     private Double total;
 
+
     //private int idCliente;
     //Inyeccion de dependencias
     private Cliente cliente;
