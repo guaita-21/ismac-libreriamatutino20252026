@@ -87,9 +87,7 @@ public class FacturaTestUnitaria {
                 ()->assertTrue(str.contains("Kevin"))
 
         );
-
     }
-
     @Test
 
     public  void  testFacturaInyeccion(){
@@ -99,7 +97,6 @@ public class FacturaTestUnitaria {
                 ()->assertEquals("Guaita", factura.getCliente().getApellido())
                 );
     }
-
     @Test
 
     public void  testFacturaValoresNegativos(){
