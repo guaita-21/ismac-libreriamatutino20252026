@@ -1,12 +1,21 @@
 package com.distribuida.model;
 
+import jakarta.persistence.Column;
+
 public class Autor {
+    @Column(name = "id_autor")
     private int idAutor;
+    @Column (name = "nombre")
     private String nombre;
+    @Column (name = "apellido")
     private String apellido;
+    @Column (name = "pais")
     private  String pais;
+    @Column (name = "direccion")
     private String dirreccion;
+    @Column (name = "telefonno")
     private String telefono;
+    @Column (name = "correo")
     private String correo;
 
     public Autor(int idAutor, String nombre, String apellido, String pais, String dirreccion, String telefono, String correo) {

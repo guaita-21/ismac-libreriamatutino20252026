@@ -96,7 +96,7 @@ public class Libro {
         return fechapublicacion;
     }
 
-    public void setFechapublicacion(Date fechapublicacion) {
+    public void setFechapublicacion(date fechapublicacion) {
         this.fechapublicacion = fechapublicacion;
     }
 

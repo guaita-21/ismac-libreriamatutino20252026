@@ -1,8 +1,13 @@
 package com.distribuida.model;
 
+import jakarta.persistence.Column;
+
 public class Categoria {
+    @Column(name = "id_categoria")
     private int idCategoria;
+    @Column (name = "categoria")
     private String categoria;
+    @Column (name = "descripcion")
     private String descripcion;
 
 
