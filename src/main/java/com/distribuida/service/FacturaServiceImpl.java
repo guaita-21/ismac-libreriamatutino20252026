@@ -13,8 +13,10 @@ public class FacturaServiceImpl implements FacturaService {
     @Autowired
     private FacturaDAO facturaDAO;
 
+
+
     @Override
-    public List<Factura> fiandAll() {
+    public List<Factura> findAll() {
         return facturaDAO.findAll();
     }
 
