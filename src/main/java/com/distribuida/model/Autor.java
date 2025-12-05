@@ -1,8 +1,12 @@
 package com.distribuida.model;
 
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 
+@Entity
+@Table (name = "autor")
 public class Autor {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "id_autor")
     private int idAutor;
     @Column (name = "nombre")
@@ -13,11 +17,12 @@ public class Autor {
     private  String pais;
     @Column (name = "direccion")
     private String dirreccion;
-    @Column (name = "telefonno")
+    @Column (name = "telefono")
     private String telefono;
     @Column (name = "correo")
     private String correo;
 
+    public Autor (){}
     public Autor(int idAutor, String nombre, String apellido, String pais, String dirreccion, String telefono, String correo) {
         this.idAutor = idAutor;
         this.nombre = nombre;

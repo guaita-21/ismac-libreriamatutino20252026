@@ -4,6 +4,7 @@ import com.distribuida.model.Factura;
 import com.distribuida.model.FacturaDetalle;
 import com.distribuida.model.Libro;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class FacturaDetallePrincipal {
@@ -21,7 +22,7 @@ public class FacturaDetallePrincipal {
             FacturaDetalle facturaDetalle=new FacturaDetalle();
             facturaDetalle.setIdFacturaDetalle(2);
             facturaDetalle.setCantidad(24);
-            facturaDetalle.setSubtotal(48);
+            facturaDetalle.setSubtotal(new BigDecimal("48.00"));
 
 
 

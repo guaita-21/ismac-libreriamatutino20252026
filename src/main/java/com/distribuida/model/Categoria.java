@@ -1,8 +1,13 @@
 package com.distribuida.model;
 
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "categoria")
 public class Categoria {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_categoria")
     private int idCategoria;
     @Column (name = "categoria")
@@ -10,7 +15,7 @@ public class Categoria {
     @Column (name = "descripcion")
     private String descripcion;
 
-
+    public Categoria(){}
     public Categoria(int idCategoria, String categoria, String descripcion) {
         this.idCategoria = idCategoria;
         this.categoria = categoria;

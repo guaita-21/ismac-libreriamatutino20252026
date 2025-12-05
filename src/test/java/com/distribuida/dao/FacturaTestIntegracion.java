@@ -10,15 +10,12 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.annotation.Rollback;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+
 
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -52,14 +49,14 @@ public class FacturaTestIntegracion {
 
     @Test
     public  void testFacturaSave(){
-        Optional<Cliente> cliente = clienteDAO.findById(1);
+        Optional<Cliente> cliente = clienteDAO.findById(2);
 
 
         assertTrue(cliente.isPresent());
 
         Factura factura = new Factura();
         factura.setIdFactura(0);
-        factura.setNumFactura("FAC.00066");
+        factura.setNumFactura("FAC-00066");
         factura.setFecha(new Date());
         factura.setTotalNeto(100.00);
         factura.setIva(15.00);
@@ -69,17 +66,18 @@ public class FacturaTestIntegracion {
         Factura facturaGuardada =facturaDAO.save(factura);
         assertNotNull(facturaGuardada);
         assertEquals("FAC-00066", facturaGuardada.getNumFactura());
-        assertEquals(100.0, facturaGuardada.getTotalNeto());
+        assertEquals("100.0", facturaGuardada.getTotalNeto());
 
     }
 
     @Test
 
-    public  void  testFaccturaUpdate(){
+    public  void  testFacturaUpdate(){
 
 
         Optional<Cliente> cliente = clienteDAO.findById(2);
-        Optional<Factura> factura = facturaDAO.findById(86);
+        assertTrue(cliente.isPresent());
+        Optional<Factura> factura = facturaDAO.findById(82);
 
         assertTrue(factura.isPresent());
         factura.orElse(null).setNumFactura("FAC-00077");
@@ -92,15 +90,15 @@ public class FacturaTestIntegracion {
        Factura facturaActualizada= facturaDAO.save(factura.orElse(null));
 
        assertEquals("FAC-00077", facturaActualizada.getNumFactura());
-       assertEquals("200", facturaActualizada.getTotalNeto());
+       assertEquals("200.00", facturaActualizada.getTotalNeto());
        assertEquals("Juan", facturaActualizada.getCliente().getNombre());
     }
 
     @Test
 
-    public  void  testFacturaDelete(){
-       if (facturaDAO.existsById(87))
-        facturaDAO.deleteById(87);
+    public  void  testFacturaDelete() {
+        if (facturaDAO.existsById(87))
+            facturaDAO.deleteById(87);
 
        assertFalse(facturaDAO.existsById(87),"*****El dato fue eliminado");
     }
