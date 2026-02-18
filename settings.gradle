@@ -1,0 +1,3 @@
+rootProject.name = 'proyecto-libreria'
+
+include 'libreria'
